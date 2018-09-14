@@ -1,0 +1,29 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/jiang95/SpringCloud-Learning.git
+          search-paths: config-repo
+          default-label: master
+          #username:
+          #password:
+#  rabbitmq:
+#    host: 118.25.108.65
+#    port: 5672
+#    username: springcloud
+#    password: springcloud
+
+# 注册中心
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka/
+
+management:
+  cloudfoundry:
+    enabled: false

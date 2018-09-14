@@ -1,16 +1,16 @@
-package com.cloud.authservice;
+package com.cloud.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @author : lingjun.jlj
- * @description: 服务提供
+ * @description : 服务提供
  */
 @SpringBootApplication
-public class AuthServiceApplication {
+public class ApiApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AuthServiceApplication.class, args);
+        SpringApplication.run(ApiApplication.class, args);
     }
 }
