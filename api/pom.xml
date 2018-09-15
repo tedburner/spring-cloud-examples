@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>api</name>
-    <description>Spring Cloud Consumer</description>
+    <description>服务提供者</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
