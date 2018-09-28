@@ -1,6 +1,6 @@
 package com.cloud.api.persist;
 
-import com.cloud.api.model.DO.CityDO;
+import com.cloud.api.damain.DO.CityDO;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

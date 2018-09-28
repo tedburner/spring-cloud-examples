@@ -1,4 +1,4 @@
-package com.cloud.api.utils.http;
+package com.cloud.common.http;
 
 
 import org.apache.commons.lang3.StringUtils;

@@ -1,6 +1,6 @@
 package com.cloud.api.service.impl;
 
-import com.cloud.api.model.DO.UserDO;
+import com.cloud.api.damain.DO.UserDO;
 import com.cloud.api.persist.UserMapper;
 import com.cloud.api.service.TestService;
 import org.springframework.stereotype.Service;

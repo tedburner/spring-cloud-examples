@@ -1,4 +1,4 @@
-package com.cloud.api.model;
+package com.cloud.api.damain;
 
 /**
  * @author: lingjun.jlj

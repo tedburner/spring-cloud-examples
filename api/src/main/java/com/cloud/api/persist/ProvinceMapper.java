@@ -1,7 +1,7 @@
 package com.cloud.api.persist;
 
 
-import com.cloud.api.model.DO.ProvinceDO;
+import com.cloud.api.damain.DO.ProvinceDO;
 
 /**
  * @author lingjun.jlj

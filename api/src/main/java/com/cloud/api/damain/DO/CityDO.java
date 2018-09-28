@@ -1,4 +1,4 @@
-package com.cloud.api.model.DO;
+package com.cloud.api.damain.DO;
 
 import lombok.Data;
 
