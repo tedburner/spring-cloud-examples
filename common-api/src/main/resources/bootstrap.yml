@@ -1,9 +1,9 @@
 spring:
   application:
-    name: example
+    name: cloud
   cloud:
     config:
-      profile: dev
+      profile: pro
       label: master
       discovery:
         service-id: config-server
@@ -15,4 +15,4 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8081/eureka/
 server:
-  port: 9000
+  port: 9200

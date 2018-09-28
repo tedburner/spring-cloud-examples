@@ -1,6 +1,6 @@
 spring:
   application:
-    name: example
+    name: cloud
   cloud:
     config:
       profile: dev
@@ -15,4 +15,4 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8081/eureka/
 server:
-  port: 9000
+  port: 9100

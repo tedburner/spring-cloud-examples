@@ -9,6 +9,7 @@ Spring Cloud 整合项目
 * [ ] Spring Cloud Zuul 网关
 * [ ] Spring Cloud Sleuth + Zipkin 分布式链路跟踪
 * [ ] Docker Compose
+* [ ] 基于kafka的分布式事务
 --- 
 
 ## 目录结构
