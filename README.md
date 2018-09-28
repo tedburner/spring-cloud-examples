@@ -6,7 +6,13 @@ Spring Cloud 整合项目
 
 * [x] Spring Cloud Config
 * [x] Spring Cloud Eureka Server 注册中心
-* [x] Spring Cloud Zuul 网关
-* [x] Spring Cloud Sleuth + Zipkin 分布式链路跟踪
-* [x] Docker Compose
+* [ ] Spring Cloud Zuul 网关
+* [ ] Spring Cloud Sleuth + Zipkin 分布式链路跟踪
+* [ ] Docker Compose
 --- 
+
+## 目录结构
+
+- [注册中心](registry)
+- [配置中心](config)
+- [网关](gateway)
