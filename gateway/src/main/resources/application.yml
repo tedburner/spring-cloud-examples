@@ -1,2 +1,14 @@
 server:
-  port:8700
+  port: 8700
+spring:
+  application:
+    name: api-gateway
+
+zuul:
+  routes:
+    common:
+      path: /api/common/**
+      url: http://localhost:9200/
+    test:
+      path: /api/test/**
+      url: http://localhost:9100/
