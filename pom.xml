@@ -11,6 +11,14 @@
     <name>spring-cloud-examples</name>
     <description>Demo project for Spring Cloud</description>
 
+    <modules>
+        <module>common-api</module>
+        <module>config</module>
+        <module>gateway</module>
+        <module>registry</module>
+        <module>test-api</module>
+    </modules>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
