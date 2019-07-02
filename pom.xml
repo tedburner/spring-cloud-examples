@@ -11,6 +11,15 @@
     <name>spring-cloud-examples</name>
     <description>Demo project for Spring Cloud</description>
 
+    <modules>
+        <module>account</module>
+        <module>order</module>
+        <module>config</module>
+        <module>gateway</module>
+        <module>registry</module>
+        <module>storage</module>
+    </modules>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -22,6 +31,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <seata.version>0.6.1</seata.version>
     </properties>
 
     <dependencies>
@@ -36,6 +46,24 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-seata</artifactId>
+            <version>0.9.0.RELEASE</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.seata</groupId>
+                    <artifactId>seata-spring</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>io.seata</groupId>
+            <artifactId>seata-all</artifactId>
+            <version>${seata.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
