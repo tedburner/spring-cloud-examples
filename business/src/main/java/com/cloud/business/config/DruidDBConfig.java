@@ -1,6 +1,7 @@
 package com.cloud.business.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import io.seata.rm.datasource.DataSourceProxy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -8,7 +9,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
-import javax.sql.DataSource;
 import java.sql.SQLException;
 
 /**
@@ -76,37 +76,42 @@ public class DruidDBConfig {
     @Value("{spring.datasource.connectionProperties}")
     private String connectionProperties;
 
-    @Bean     //声明其为Bean实例
-    @Primary  //在同样的DataSource中，首先使用被标注的DataSource
-    public DataSource dataSource() {
-        DruidDataSource datasource = new DruidDataSource();
+    @Bean
+    public DruidDataSource druidDataSource() {
+        DruidDataSource druidDataSource = new DruidDataSource();
 
-        datasource.setUrl(this.dbUrl);
-        datasource.setUsername(username);
-        datasource.setPassword(password);
-        datasource.setDriverClassName(driverClassName);
+        druidDataSource.setUrl(this.dbUrl);
+        druidDataSource.setUsername(username);
+        druidDataSource.setPassword(password);
+        druidDataSource.setDriverClassName(driverClassName);
 
         //configuration
-        datasource.setInitialSize(initialSize);
-        datasource.setMinIdle(minIdle);
-        datasource.setMaxActive(maxActive);
-        datasource.setMaxWait(maxWait);
-        datasource.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
-        datasource.setMinEvictableIdleTimeMillis(minEvictableIdleTimeMillis);
-        datasource.setValidationQuery(validationQuery);
-        datasource.setTestWhileIdle(testWhileIdle);
-        datasource.setTestOnBorrow(testOnBorrow);
-        datasource.setTestOnReturn(testOnReturn);
-        datasource.setPoolPreparedStatements(poolPreparedStatements);
-        datasource.setMaxPoolPreparedStatementPerConnectionSize(maxPoolPreparedStatementPerConnectionSize);
+        druidDataSource.setInitialSize(initialSize);
+        druidDataSource.setMinIdle(minIdle);
+        druidDataSource.setMaxActive(maxActive);
+        druidDataSource.setMaxWait(maxWait);
+        druidDataSource.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
+        druidDataSource.setMinEvictableIdleTimeMillis(minEvictableIdleTimeMillis);
+        druidDataSource.setValidationQuery(validationQuery);
+        druidDataSource.setTestWhileIdle(testWhileIdle);
+        druidDataSource.setTestOnBorrow(testOnBorrow);
+        druidDataSource.setTestOnReturn(testOnReturn);
+        druidDataSource.setPoolPreparedStatements(poolPreparedStatements);
+        druidDataSource.setMaxPoolPreparedStatementPerConnectionSize(maxPoolPreparedStatementPerConnectionSize);
         try {
-            datasource.setFilters(filters);
+            druidDataSource.setFilters(filters);
         } catch (SQLException e) {
             logger.error("druid configuration initialization filters", e);
         }
-        datasource.setConnectionProperties(connectionProperties);
+        druidDataSource.setConnectionProperties(connectionProperties);
 
-        return datasource;
+        return druidDataSource;
+    }
+
+    @Primary
+    @Bean("dataSource")
+    public DataSourceProxy dataSource(DruidDataSource druidDataSource) {
+        return new DataSourceProxy(druidDataSource);
     }
 
 }
