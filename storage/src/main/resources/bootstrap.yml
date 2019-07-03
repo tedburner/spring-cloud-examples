@@ -8,6 +8,9 @@ spring:
       discovery:
         service-id: config-server
         enabled: true
+    alibaba:
+      seata:
+        tx-service-group: my_test_tx_group
   jpa:
     show-sql: true
     hibernate:

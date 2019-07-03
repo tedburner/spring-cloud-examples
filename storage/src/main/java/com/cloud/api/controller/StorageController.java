@@ -1,9 +1,10 @@
 package com.cloud.api.controller;
 
-import com.cloud.api.service.TestService;
+import com.cloud.api.service.StorageService;
 import com.cloud.api.utils.http.NewResponseModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,20 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
  * @description:
  */
 @RestController
-public class TestController {
+public class StorageController {
 
     @Autowired
-    private TestService testService;
+    private StorageService storageService;
 
-    @Value("from")
-    private String from;
-
-    @RequestMapping(value = "/test")
-    public NewResponseModel test() {
-        NewResponseModel responseModel = NewResponseModel.Success();
-
-        responseModel.setData(testService.findUserList());
-
-        return responseModel;
+    @GetMapping(path = "/deduct")
+    public Boolean deduct(String commodityCode, Integer count) {
+        storageService.deduct(commodityCode, count);
+        return true;
     }
 }

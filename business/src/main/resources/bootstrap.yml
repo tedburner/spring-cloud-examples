@@ -1,6 +1,6 @@
 spring:
   application:
-    name: order-service
+    name: business-service
   cloud:
     config:
       profile: dev
@@ -16,10 +16,12 @@ spring:
     hibernate:
       ddl-auto: update
       use-new-id-generator-mappings: true
+
+
 ## 服务注册中心
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8081/eureka/
 server:
-  port: 9200
+  port: 9204
