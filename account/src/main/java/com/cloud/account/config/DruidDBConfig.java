@@ -1,7 +1,6 @@
-package com.cloud.common.config;
+package com.cloud.account.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import org.mybatis.spring.SqlSessionFactoryBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -111,11 +110,4 @@ public class DruidDBConfig {
         return datasource;
     }
 
-    @Bean
-    @ConfigurationProperties(prefix = "mybatis")
-    public SqlSessionFactoryBean sqlSessionFactoryBean() {
-        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-        sqlSessionFactoryBean.setDataSource(dataSource());
-        return sqlSessionFactoryBean;
-    }
 }

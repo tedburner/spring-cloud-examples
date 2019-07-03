@@ -1,7 +1,7 @@
-package com.cloud.common.controller;
+package com.cloud.order.controller;
 
-import com.cloud.common.service.UserService;
-import com.cloud.common.utils.http.NewResponseModel;
+import com.cloud.order.service.OrderService;
+import com.cloud.order.utils.http.NewResponseModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class CommonController {
 
     @Autowired
-    private UserService userService;
+    private OrderService orderService;
 
     @RequestMapping(value = "/getUserById")
     public NewResponseModel getUserById(@RequestParam("id") Long id) {
         NewResponseModel responseModel = NewResponseModel.Success();
-        responseModel.setData(userService.findUserById(id));
+        responseModel.setData(orderService.findUserById(id));
         return responseModel;
     }
 }

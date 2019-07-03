@@ -1,9 +1,9 @@
-package com.cloud.api.config;
+package com.cloud.order.config;
 
-import com.alibaba.druid.pool.DruidDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -107,5 +107,13 @@ public class DruidDBConfig {
         datasource.setConnectionProperties(connectionProperties);
 
         return datasource;
+    }
+
+    @Bean
+    @ConfigurationProperties(prefix = "mybatis")
+    public SqlSessionFactoryBean sqlSessionFactoryBean() {
+        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+        sqlSessionFactoryBean.setDataSource(dataSource());
+        return sqlSessionFactoryBean;
     }
 }

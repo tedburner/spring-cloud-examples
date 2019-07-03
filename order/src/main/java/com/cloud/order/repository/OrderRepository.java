@@ -1,9 +1,7 @@
-package com.cloud.common.repository;
+package com.cloud.order.repository;
 
-import com.cloud.common.damain.DO.Order;
+import com.cloud.order.damain.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import java.util.List;
 
 /**
  * @author: lingjun.jlj

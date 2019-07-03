@@ -1,6 +1,6 @@
 spring:
   application:
-    name: cloud
+    name: storage-service
   cloud:
     config:
       profile: dev
@@ -8,6 +8,11 @@ spring:
       discovery:
         service-id: config-server
         enabled: true
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      use-new-id-generator-mappings: true
 
 ## 服务注册中心
 eureka:
@@ -15,4 +20,4 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8081/eureka/
 server:
-  port: 9100
+  port: 9203
