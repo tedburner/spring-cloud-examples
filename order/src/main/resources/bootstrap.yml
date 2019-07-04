@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: order-service
+  cloud:
+    config:
+      profile: dev
+      label: master
+      discovery:
+        service-id: config-server
+        enabled: true
+    alibaba:
+      seata:
+        tx-service-group: my_test_tx_group
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      use-new-id-generator-mappings: true
+## 服务注册中心
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka/
+server:
+  port: 9200
