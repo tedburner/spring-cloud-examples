@@ -7,7 +7,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/jiang95/SpringCloud-Learning.git
+          uri: https://gitee.com/tedburner/repository.git
           search-paths: config-repo
           default-label: master
           #username:
