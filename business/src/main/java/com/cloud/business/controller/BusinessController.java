@@ -6,12 +6,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * @author: lingjun.jlj
+ * @description: 模拟业务流程
+ */
 @Slf4j
 @RestController
 public class BusinessController {
 
+    private final BusinessService businessService;
+
     @Autowired
-    private BusinessService businessService;
+    public BusinessController(BusinessService businessService) {
+        this.businessService = businessService;
+    }
 
     /**
      * 购买下单，模拟全局事务提交

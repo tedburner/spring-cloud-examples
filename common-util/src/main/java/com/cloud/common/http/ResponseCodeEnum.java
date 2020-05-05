@@ -1,4 +1,4 @@
-package com.cloud.storage.utils.http;
+package com.cloud.common.http;
 
 /**
  * @author lingjun.jlj

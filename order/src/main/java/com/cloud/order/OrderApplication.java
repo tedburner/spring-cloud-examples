@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * @author : lingjun.jlj
- * @description: 普通服务提供
+ * @description: 订单服务服务提供
  */
 @EnableFeignClients
 @EnableDiscoveryClient

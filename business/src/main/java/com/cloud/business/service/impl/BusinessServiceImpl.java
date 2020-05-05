@@ -15,10 +15,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class BusinessServiceImpl implements BusinessService {
 
+    private final StorageFeignClient storageFeignClient;
+    private final OrderFeignClient orderFeignClient;
+
     @Autowired
-    private StorageFeignClient storageFeignClient;
-    @Autowired
-    private OrderFeignClient orderFeignClient;
+    public BusinessServiceImpl(StorageFeignClient storageFeignClient, OrderFeignClient orderFeignClient) {
+        this.storageFeignClient = storageFeignClient;
+        this.orderFeignClient = orderFeignClient;
+    }
 
     @Override
     public void purchase(String userId, String commodityCode, int orderCount) {

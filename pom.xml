@@ -21,6 +21,7 @@
         <module>account</module>
         <module>order</module>
         <module>storage</module>
+        <module>common-util</module>
     </modules>
 
     <parent>

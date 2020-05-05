@@ -15,6 +15,13 @@ import java.math.BigDecimal;
 @FeignClient(name = "account-service")
 public interface UserFeignClient {
 
+    /**
+     * 远程调用扣除用户金额
+     *
+     * @param userId 用户ID
+     * @param money  金额
+     * @return
+     */
     @GetMapping("/debit")
     Boolean debit(@RequestParam("userId") String userId, @RequestParam("money") BigDecimal money);
 }
