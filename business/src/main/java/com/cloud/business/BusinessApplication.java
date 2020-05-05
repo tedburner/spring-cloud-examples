@@ -6,6 +6,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+/**
+ * @author lingjun.jlj
+ * @description: 购物买单
+ */
 @EnableJpaRepositories
 @EnableFeignClients
 @EnableDiscoveryClient

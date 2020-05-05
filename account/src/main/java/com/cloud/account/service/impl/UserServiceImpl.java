@@ -19,14 +19,20 @@ import java.math.BigDecimal;
 public class UserServiceImpl implements UserService {
 
     private static final String ERROR_USER_ID = "1002";
+
+    private final AccountRepository accountRepository;
+
     @Autowired
-    private AccountRepository accountRepository;
+    public UserServiceImpl(AccountRepository accountRepository) {
+        this.accountRepository = accountRepository;
+    }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void debit(String userId, BigDecimal num) {
         Account account = accountRepository.findByUserId(userId);
-        account.setMoney(account.getMoney().subtract(num));
+        BigDecimal money = account.getMoney().subtract(num);
+        account.setMoney(money);
         accountRepository.save(account);
 
         if (ERROR_USER_ID.equals(userId)) {

@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
- * @author Arthas
+ * @author lingjun.jlj
  * @date 2019/06/14
  */
 @FeignClient(name = "storage-service")

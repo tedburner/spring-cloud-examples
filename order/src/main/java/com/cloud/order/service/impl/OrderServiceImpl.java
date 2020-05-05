@@ -18,10 +18,14 @@ import java.math.BigDecimal;
 @Service
 public class OrderServiceImpl implements OrderService {
 
+    private final OrderRepository orderRepository;
+    private final UserFeignClient userFeignClient;
+
     @Autowired
-    private OrderRepository orderRepository;
-    @Autowired
-    private UserFeignClient userFeignClient;
+    public OrderServiceImpl(OrderRepository orderRepository, UserFeignClient userFeignClient) {
+        this.orderRepository = orderRepository;
+        this.userFeignClient = userFeignClient;
+    }
 
     @Override
     @Transactional(rollbackFor = Exception.class)

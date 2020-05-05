@@ -1,4 +1,4 @@
-package com.cloud.order;
+package com.cloud.storage;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,14 +7,14 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * @author : lingjun.jlj
- * @description: 订单服务服务提供
+ * @description : 服务提供
  */
 @EnableFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication
-public class OrderApplication {
+public class StorageApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(OrderApplication.class, args);
+        SpringApplication.run(StorageApplication.class, args);
     }
 }

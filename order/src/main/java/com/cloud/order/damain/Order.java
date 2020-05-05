@@ -1,10 +1,11 @@
 package com.cloud.order.damain;
 
+import com.cloud.common.constant.DatabaseConstants;
 import lombok.Data;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,9 +19,8 @@ import java.math.BigDecimal;
  */
 @Data
 @Entity
-@Table(name = "order_tbl")
-@DynamicUpdate
-@DynamicInsert
+@Table(name = DatabaseConstants.DB_TABLE_ORDER_NAME)
+@EntityListeners(AuditingEntityListener.class)
 public class Order {
 
     @Id

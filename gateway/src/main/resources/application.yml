@@ -1,16 +1,15 @@
 server:
-  port: 8700
+  port:8810
 spring:
   application:
-    name: api-gateway
-  cloud:
-    gateway:
-      routes:
-        - id: test_route
-          uri:  http://localhost:9200/
-          predicates:
-            - Path=/api/common/**
-        - id: test_route
-            uri:  http://localhost:9100/
-            predicates:
-              - Path= /api/test/**
+    name: gateway-server
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    # 表示是否将自己注册到Eureka Server，默认为true。
+    register-with-eureka: false
+    # 表示是否从Eureka Server获取注册信息，默认为true。
+    fetch-registry: false
+    # 设置与Eureka Server交互的地址，查询服务和注册服务都需要依赖这个地址。默认是http://localhost:8761/eureka ；多个地址可使用 , 分隔。
+    service.defaultZone: localhost:8081/eureka/
