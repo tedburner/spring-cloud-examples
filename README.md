@@ -7,16 +7,27 @@ Spring Cloud 整合项目
 * [x] Spring Cloud Config
 * [x] Spring Cloud Eureka Server 注册中心
 * [ ] Spring Cloud Zuul 网关
-* [ ] Spring Cloud Sleuth + Zipkin 分布式链路跟踪
+* [x] Spring Cloud Sleuth + Zipkin 分布式链路跟踪
 * [ ] Docker Compose
 * [ ] 基于kafka的分布式事务
 --- 
 
 ## 目录结构
-
 - [注册中心](registry)
 - [配置中心](config)
 - [网关](gateway)
+
+## 分布式链路跟踪 Sleuth 与 Zipkin
+### 安装 Zipkin
+```bash
+# 方法一：启动jar
+curl -sSL https://zipkin.io/quickstart.sh | bash -s
+java -jar zipkin.jar
+
+# 方法二：使用docker部署
+docker pull openzipkin/zipkin
+docker run -d --name zipkin -p 9411:9411 openzipkin/zipkin 
+```
 
 ## 启动 Seata 
 ### 准备工作
