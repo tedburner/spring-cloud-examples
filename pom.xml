@@ -36,7 +36,10 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <seata.version>0.6.1</seata.version>
-        <spring-cloud.version>Greenwich.SR3</spring-cloud.version>
+        <spring-cloud.version>Greenwich.SR6</spring-cloud.version>
+        <alibaba.fastjson.version>1.2.70</alibaba.fastjson.version>
+        <alibaba.druid.version>1.1.20</alibaba.druid.version>
+        <mysql.version>8.0.20</mysql.version>
     </properties>
 
     <dependencyManagement>
@@ -45,18 +48,18 @@
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
-                <version>1.2.62</version>
+                <version>${alibaba.fastjson.version}</version>
             </dependency>
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>8.0.11</version>
+                <version>${mysql.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
-                <version>1.1.20</version>
+                <version>${alibaba.druid.version}</version>
             </dependency>
 
             <dependency>
