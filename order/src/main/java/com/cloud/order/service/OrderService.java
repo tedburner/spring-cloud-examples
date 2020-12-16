@@ -15,4 +15,14 @@ public interface OrderService {
      * @param count         订单金额
      */
     void create(String userId, String commodityCode, Integer count);
+
+    /**
+     * 创建订单
+     *
+     * @param userId        用户ID
+     * @param commodityCode 商品码
+     * @param count         订单金额
+     * @return
+     */
+    int save(String userId, String commodityCode, Integer count);
 }
