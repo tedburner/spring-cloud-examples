@@ -28,4 +28,12 @@ public class StorageController {
         storageService.deduct(commodityCode, count);
         return true;
     }
+
+    @GetMapping(value = "/findById")
+    public Integer findById(String commodityCode) {
+        log.info("查询商品[{}]库存", commodityCode);
+        Integer count = storageService.findById(commodityCode);
+        log.info("商品[{}]库存数量：{}", commodityCode, count);
+        return count;
+    }
 }

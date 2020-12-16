@@ -1,5 +1,6 @@
 package com.cloud.order.config;
 
+import com.cloud.common.constant.Constant;
 import com.cloud.order.service.OrderService;
 import com.cloud.order.service.impl.TransactionListenerImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -51,9 +52,9 @@ public class TransactionProducer {
     public TransactionProducer(@Autowired OrderService orderService) {
         transactionListener = new TransactionListenerImpl(orderService);
         // 初始化 事务生产者
-        producer = new TransactionMQProducer("order-service");
+        producer = new TransactionMQProducer(Constant.ORDER_TOPIC);
         // 添加服务器地址
-        producer.setNamesrvAddr("127.0.0.1:9876");
+        producer.setNamesrvAddr(Constant.NAME_SERVER);
         // 添加事务监听器
         producer.setTransactionListener(transactionListener);
         // 添加自定义线程池

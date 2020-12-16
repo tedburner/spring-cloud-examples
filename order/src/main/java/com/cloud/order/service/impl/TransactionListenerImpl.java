@@ -30,8 +30,9 @@ public class TransactionListenerImpl implements TransactionListener {
         String message = new String(msg.getBody());
         JSONObject jsonObject = JSONObject.parseObject(message);
         String productId = jsonObject.getString("productId");
-        Integer total = jsonObject.getInteger("total");
+        Integer total = jsonObject.getInteger("count");
         String userId = object.toString();
+        log.info("userId = {}", userId);
         //模拟执行本地事务begin=======
         /**
          * 本地事务执行会有三种可能
@@ -39,7 +40,7 @@ public class TransactionListenerImpl implements TransactionListener {
          * 2、Rollback 失败
          * 3、网络等原因服务宕机收不到返回结果
          */
-        log.info("本地事务执行参数,用户id={},商品ID={},销售库存={}", userId, productId, total);
+        log.info("本地事务执行参数,用户id={},商品ID={},扣除商品数={}", userId, productId, total);
         int result = orderService.save(userId, productId, total);
         //模拟执行本地事务end========
         //TODO 实际开发下面不需要我们手动返回，而是根据本地事务执行结果自动返回

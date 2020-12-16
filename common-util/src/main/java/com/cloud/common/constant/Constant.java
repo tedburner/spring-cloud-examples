@@ -1,4 +1,4 @@
-package com.cloud.order.constant;
+package com.cloud.common.constant;
 
 /**
  * @author: lingjun.jlj
@@ -7,5 +7,6 @@ package com.cloud.order.constant;
  */
 public class Constant {
 
+    public static final String NAME_SERVER = "127.0.0.1:9876";
     public static final String ORDER_TOPIC = "order-service";
 }

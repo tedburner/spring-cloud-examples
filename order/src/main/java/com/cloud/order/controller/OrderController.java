@@ -1,8 +1,8 @@
 package com.cloud.order.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.cloud.common.constant.Constant;
 import com.cloud.order.config.TransactionProducer;
-import com.cloud.order.constant.Constant;
 import com.cloud.order.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.exception.MQClientException;
