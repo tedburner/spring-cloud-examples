@@ -17,9 +17,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Slf4j
 public class TransactionListenerImpl implements TransactionListener {
 
-    private final OrderService orderService;
-
     @Autowired
+    private OrderService orderService;
+
     public TransactionListenerImpl(OrderService orderService) {
         this.orderService = orderService;
     }
@@ -59,8 +59,23 @@ public class TransactionListenerImpl implements TransactionListener {
         return LocalTransactionState.COMMIT_MESSAGE;
     }
 
+    /**
+     * 只有上面接口返回 LocalTransactionState.UNKNOW 才会调用查接口被调用
+     *
+     * @param messageExt 消息
+     * @return
+     */
     @Override
     public LocalTransactionState checkLocalTransaction(MessageExt messageExt) {
-        return null;
+        log.info("==========回查接口=========");
+        String key = messageExt.getKeys();
+        //TODO 1、必须根据key先去检查本地事务消息是否完成。
+        /**
+         * 因为有种情况就是：上面本地事务执行成功了，但是return LocalTransactionState.COMMIT_MESSAG的时候
+         * 服务挂了，那么最终 Brock还未收到消息的二次确定，还是个半消息 ，所以当重新启动的时候还是回调这个回调接口。
+         * 如果不先查询上面本地事务的执行情况 直接在执行本地事务，那么就相当于成功执行了两次本地事务了。
+         */
+        // TODO 2、这里返回要么commit 要么rollback。没有必要在返回 UNKNOW
+        return LocalTransactionState.COMMIT_MESSAGE;
     }
 }

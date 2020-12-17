@@ -1,7 +1,7 @@
 package com.cloud.storage.mqservice;
 
 import com.alibaba.fastjson.JSONObject;
-import com.cloud.common.constant.Constant;
+import com.cloud.common.constant.MqConstant;
 import com.cloud.storage.service.StorageService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
@@ -29,9 +29,9 @@ public class OrderConsumer {
         //设置消费组
         consumer = new DefaultMQPushConsumer(consumerGroup);
         // 添加服务器地址
-        consumer.setNamesrvAddr(Constant.NAME_SERVER);
+        consumer.setNamesrvAddr(MqConstant.NAME_SERVER);
         // 添加订阅号
-        consumer.subscribe(Constant.ORDER_TOPIC, "*");
+        consumer.subscribe(MqConstant.ORDER_TOPIC, "*");
         // 监听消息
         consumer.registerMessageListener((MessageListenerConcurrently) (msgs, context) -> {
             MessageExt msg = msgs.get(0);

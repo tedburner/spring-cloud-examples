@@ -8,6 +8,7 @@ public enum ResponseCodeEnum {
     Success(0, "请求成功"),
     Fail(1000, "请求失败"),
     PARAM_ERROR(1001, "参数错误"),
+    SERVER_ERROR(1102, "服务器开小差了")
     ;
 
 
