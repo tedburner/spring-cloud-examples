@@ -23,11 +23,11 @@ public class NewResponseModel<T> implements Serializable {
     }
 
     public static <T> NewResponseModel<T> ParamError(String info) {
-        return new NewResponseModel<T>(ResponseCodeEnum.PARAMETER_ERROR.getCode(), info);
+        return new NewResponseModel<T>(ResponseCodeEnum.PARAM_ERROR.getCode(), info);
     }
 
     public static <T> NewResponseModel<T> ParamError() {
-        return new NewResponseModel<T>(ResponseCodeEnum.PARAMETER_ERROR.getCode(), ResponseCodeEnum.PARAMETER_ERROR.getMessage());
+        return new NewResponseModel<T>(ResponseCodeEnum.PARAM_ERROR.getCode(), ResponseCodeEnum.PARAM_ERROR.getMessage());
     }
 
     public static <T> NewResponseModel<T> Fail(String info) {
