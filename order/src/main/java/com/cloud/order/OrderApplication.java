@@ -10,7 +10,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @description: 订单服务服务提供
  */
 @EnableFeignClients
-@EnableDiscoveryClient
 @SpringBootApplication
 public class OrderApplication {
 

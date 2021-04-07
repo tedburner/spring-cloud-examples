@@ -12,7 +12,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  */
 @EnableJpaRepositories
 @EnableFeignClients
-@EnableDiscoveryClient
 @SpringBootApplication
 public class BusinessApplication {
 
