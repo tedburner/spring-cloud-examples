@@ -3,6 +3,7 @@ package com.cloud.business.service.impl;
 import com.cloud.business.feign.OrderFeignClient;
 import com.cloud.business.feign.StorageFeignClient;
 import com.cloud.business.service.BusinessService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
  * @version：1.0
  * @description:
  */
+@Slf4j
 @Service
 public class BusinessServiceImpl implements BusinessService {
 
@@ -25,9 +27,11 @@ public class BusinessServiceImpl implements BusinessService {
     }
 
     @Override
-    public void purchase(String userId, String commodityCode, int orderCount) {
-        storageFeignClient.deduct(commodityCode, orderCount);
-
-        orderFeignClient.create(userId, commodityCode, orderCount);
+    public void purchase(String userId, String commodityCode, int commodityCount) {
+        log.info("用户[{}]购买商品[{}]，数量：{}", userId, commodityCode, commodityCount);
+        // 仓储扣款
+        storageFeignClient.deduct(commodityCode, commodityCount);
+        // 创建订单
+        orderFeignClient.create(userId, commodityCode, commodityCount);
     }
 }

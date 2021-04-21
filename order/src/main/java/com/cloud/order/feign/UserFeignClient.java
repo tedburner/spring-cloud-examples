@@ -1,5 +1,6 @@
 package com.cloud.order.feign;
 
+import com.cloud.order.service.impl.UserHystrix;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,7 +13,7 @@ import java.math.BigDecimal;
  * @version：1.0
  * @description:
  */
-@FeignClient(name = "account-service")
+@FeignClient(name = "account-service", fallback = UserHystrix.class)
 public interface UserFeignClient {
 
     /**
@@ -22,6 +23,7 @@ public interface UserFeignClient {
      * @param money  金额
      * @return
      */
-    @GetMapping("/debit")
+    @GetMapping(path = "/debit")
     Boolean debit(@RequestParam("userId") String userId, @RequestParam("money") BigDecimal money);
+
 }
