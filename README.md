@@ -7,9 +7,9 @@ Spring Cloud 整合项目
 * [x] Spring Cloud Config
 * [x] Spring Cloud Eureka Server 注册中心
 * [ ] Spring Cloud Gateway 网关
-* [x] Spring Cloud Sleuth + Zipkin 分布式链路跟踪
+* [ ] Spring Cloud Sleuth + Zipkin 分布式链路跟踪
 * [ ] Docker Compose
-* [ ] 基于kafka的分布式事务
+* [x] 基于RocketMq的分布式事务
 --- 
 
 ## 目录结构
@@ -19,6 +19,7 @@ Spring Cloud 整合项目
 
 ## 分布式链路跟踪 Sleuth 与 Zipkin
 ### 安装 Zipkin
+zipkin 在2.0之后，不推荐自己搭建服务，直接使用官方编译包部署
 ```bash
 # 方法一：启动jar
 curl -sSL https://zipkin.io/quickstart.sh | bash -s
