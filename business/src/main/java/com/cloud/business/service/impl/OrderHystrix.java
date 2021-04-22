@@ -8,19 +8,14 @@ import org.springframework.stereotype.Component;
 /**
  * @author: lingjun.jlj
  * @date: 2021/4/21 21:20
- * @description:
+ * @description: 如果使用 fallback，需要实现接口
  */
 @Slf4j
 @Component
-public class OrderHystrix implements FallbackFactory<OrderFeignClient> {
+public class OrderHystrix implements OrderFeignClient {
 
     @Override
-    public OrderFeignClient create(Throwable throwable) {
-        return new OrderFeignClient() {
-            @Override
-            public void create(String userId, String commodityCode, Integer count) {
-                log.error("创建订单失败，进行服务降级");
-            }
-        };
+    public void create(String userId, String commodityCode, Integer count) {
+        log.error("创建订单失败，进行服务降级");
     }
 }
