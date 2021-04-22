@@ -3,6 +3,7 @@ package com.cloud.business.controller;
 import com.cloud.business.service.BusinessService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,10 +27,10 @@ public class BusinessController {
      *
      * @return
      */
-    @RequestMapping("/purchase/commit")
-    public Boolean purchaseCommit() {
+    @GetMapping(value = "/purchase/commit")
+    public Boolean purchaseCommit(String userId, String commodityCode, Integer commodityCount) {
         log.info("购买下单，模拟全局事务提交");
-        businessService.purchase("1001", "2001", 1);
+        businessService.purchase(userId, commodityCode, commodityCount);
         return true;
     }
 

@@ -10,7 +10,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @description : 服务提供
  */
 @EnableFeignClients
-@EnableDiscoveryClient
 @SpringBootApplication
 public class StorageApplication {
 

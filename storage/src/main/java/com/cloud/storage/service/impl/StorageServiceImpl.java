@@ -26,8 +26,11 @@ public class StorageServiceImpl implements StorageService {
     @Transactional(rollbackFor = Exception.class)
     public void deduct(String commodityCode, int count) {
         Storage storage = storageRepository.findByCommodityCode(commodityCode);
+        if (storage.getCount() < count) {
+            log.error("商品[{}]数量为【{}】，不足【{}】", commodityCode, storage.getCount(), count);
+            throw new RuntimeException("库存不足，更新库存失败");
+        }
         storage.setCount(storage.getCount() - count);
-
         storageRepository.save(storage);
     }
 

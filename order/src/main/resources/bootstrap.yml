@@ -1,3 +1,5 @@
+server:
+  port: 9200
 spring:
   application:
     name: order-service
@@ -34,5 +36,7 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8081/eureka/
-server:
-  port: 9200
+# feign 配置
+feign:
+  hystrix:
+    enabled: true

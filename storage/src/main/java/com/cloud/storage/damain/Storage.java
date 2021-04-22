@@ -6,15 +6,12 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * @author: lingjun.jlj
  * @date: 2018/9/15 10:28
- * @description:
+ * @description: 仓储表
  */
 @Data
 @Entity
@@ -23,6 +20,7 @@ import javax.persistence.Table;
 public class Storage {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String commodityCode;
     private Integer count;

@@ -4,17 +4,14 @@ import com.cloud.common.constant.DatabaseConstants;
 import lombok.Data;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 /**
  * @author: lingjun.jlj
  * @date: 2019/7/3 10:14
  * @version：1.0
- * @description:
+ * @description: 用户表
  */
 @Data
 @Entity
@@ -23,6 +20,7 @@ import java.math.BigDecimal;
 public class Account {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String userId;
     private BigDecimal money;

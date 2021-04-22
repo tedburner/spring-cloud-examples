@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 /**
  * @author: lingjun.jlj
  * @date: 2018/10/8 16:14
- * @description:
+ * @description: 订单表
  */
 @Data
 @Entity
