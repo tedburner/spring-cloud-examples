@@ -13,7 +13,7 @@ import java.math.BigDecimal;
  * @version：1.0
  * @description:
  */
-@FeignClient(name = "account-service", fallback = UserHystrix.class)
+@FeignClient(name = "account-service", fallbackFactory = UserHystrix.class)
 public interface UserFeignClient {
 
     /**

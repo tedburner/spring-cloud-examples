@@ -1,8 +1,9 @@
 package com.cloud.business.service.impl;
 
+import com.cloud.business.feign.OrderFeignClient;
+import feign.hystrix.FallbackFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 /**
  * @author: lingjun.jlj
@@ -11,16 +12,15 @@ import org.springframework.stereotype.Service;
  */
 @Slf4j
 @Component
-public class OrderHystrix {
+public class OrderHystrix implements FallbackFactory<OrderFeignClient> {
 
-    /**
-     * 创建订单——进行服务降级
-     *
-     * @param userId        用户
-     * @param commodityCode 商品code
-     * @param count         购买数量
-     */
-    public void create(String userId, String commodityCode, Integer count) {
-        log.error("创建订单失败，进行服务降级");
+    @Override
+    public OrderFeignClient create(Throwable throwable) {
+        return new OrderFeignClient() {
+            @Override
+            public void create(String userId, String commodityCode, Integer count) {
+                log.error("创建订单失败，进行服务降级");
+            }
+        };
     }
 }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author Arthas
  * @date 2019/06/14
  */
-@FeignClient(name = "order-service", fallback = OrderHystrix.class)
+@FeignClient(name = "order-service", fallbackFactory = OrderHystrix.class)
 @RequestMapping(value = "/order")
 public interface OrderFeignClient {
 

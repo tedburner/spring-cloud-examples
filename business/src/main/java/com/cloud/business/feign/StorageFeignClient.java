@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author lingjun.jlj
  * @date 2019/06/14
  */
-@FeignClient(name = "storage-service", fallback = StorageHystrix.class)
+@FeignClient(name = "storage-service", fallbackFactory = StorageHystrix.class)
 @RequestMapping(value = "/storage")
 public interface StorageFeignClient {
 
