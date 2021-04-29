@@ -5,7 +5,7 @@
 
     <parent>
         <groupId>com.cloud</groupId>
-        <artifactId>cloud-example</artifactId>
+        <artifactId>cloud-examples</artifactId>
         <version>1.0.0-RELEASE</version>
     </parent>
 
