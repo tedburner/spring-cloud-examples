@@ -40,7 +40,7 @@
         <spring-cloud.version>Greenwich.SR6</spring-cloud.version>
         <alibaba.fastjson.version>1.2.70</alibaba.fastjson.version>
         <alibaba.druid.version>1.1.20</alibaba.druid.version>
-        <mysql.version>8.0.20</mysql.version>
+        <mysql.version>8.0.28</mysql.version>
         <rocketmq.version>4.7.1</rocketmq.version>
     </properties>
 
