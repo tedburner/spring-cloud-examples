@@ -1,6 +1,6 @@
 package com.cloud.storage.mqservice;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 import com.cloud.common.constant.MqConstant;
 import com.cloud.storage.service.StorageService;
 import lombok.extern.slf4j.Slf4j;
